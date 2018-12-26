@@ -1,13 +1,5 @@
 class SystemsController < ApplicationController
-
-  def index
-      if System.where('name LIKE ?', "%#{params[:search]}%").length > 0
-        @systems  = System.where('name LIKE ?', "%#{params[:search]}%")
-      else
-        @systems = System.all
-      #implicit index render
-      end
-    end
+  before_action :find_system, only: [:show, :edit, :update, :destroy]
 
     def show
     end
@@ -28,6 +20,7 @@ class SystemsController < ApplicationController
     end
 
     def edit
+      #before-action gives instance
       #implicit edit render
     end
 
@@ -49,7 +42,7 @@ class SystemsController < ApplicationController
   private
     ###private methods
     def system_params
-      params.require(:system).permit(:name, :region, :search)
+      params.require(:system).permit(:system_type, :treatment_comment, :seasonal, :account_id)
     end
 
     def find_system

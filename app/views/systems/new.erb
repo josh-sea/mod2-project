@@ -1,0 +1,20 @@
+<h1> Add a system to the an account! </h1>
+<div><% if @errors   %>
+<ul><% @errors.each do |error| %>
+<li><%= error %></li>
+<% end %>
+</ul>
+<% end %>
+</div>
+<div>
+
+<%= form_for @system do |f| %>
+<%= f.label :system_type %>
+<%= f.text_field :system_type %>
+<%= f.label :treatment_comment %>
+<%= f.text_area :treatment_comment %>
+<%= f.label :seasonal %>
+<%= f.check_box :seasonal %>
+<%= collection_select(:system, :account_id, Account.all, :id, :name) %>
+<%= f.submit %>
+<% end %>

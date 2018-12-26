@@ -5,3 +5,12 @@
 <%= button_to "Edit Account Info", edit_account_path(@account), method: "get" %>
 <h3>Edit <%= Rep.find(@account.rep_id).name %></h3>
 <%= button_to "Edit Rep Info", edit_rep_path(Rep.find(@account.rep_id)), method: "get" %>
+<br>
+<p>_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~</p>
+<% @account.systems.each do |system| %>
+<p>SYSTEM NAME: <%= system.system_type %></p>
+<p>SYSTEM TREATMENT: <%= system.treatment_comment %></p>
+<p>EDIT: <%= button_to "Edit #{system.system_type} Info", edit_system_path(system), method: "get" %></p>
+<p>_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~</p>
+<% end %>
+<p>NEW SYSTEM: <%= button_to "Add a system", new_system_path, method: "get" %></p>
