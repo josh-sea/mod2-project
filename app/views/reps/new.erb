@@ -1,0 +1,8 @@
+<h1> Add a Rep to the Company! </h1>
+<%= form_for @rep do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :region %>
+<%= f.text_field :region %>
+<%= f.submit %>
+<% end %>

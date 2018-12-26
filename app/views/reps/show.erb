@@ -1,0 +1,16 @@
+<div>
+  <h1> Rep Info </h1>
+    <p><%= @rep.name %></p>
+    <p><%= @rep.region %></p>
+    <%= button_to "Edit", edit_rep_path(@rep), method: "get" %>
+</div><br><br>
+<div>
+  <h2><%= @rep.name %> has these accounts:</h2>
+  <% @rep.accounts.each do |account| %>
+  <p><%= account.name %>, <%= account.acct_num %></p>
+  <%= button_to "Edit", edit_account_path(account), method: "get" %>
+  <%= button_to "Delete", account_path(account), method: "delete" %>
+  <% end %>
+
+
+</div>

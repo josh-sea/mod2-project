@@ -1,0 +1,7 @@
+<h1> Account Info </h1>
+<p>ACCOUNT NAME: <%= @account.name %></p>
+<p>ACCOUNT NUMBER: <%= @account.acct_num %></p>
+<p>REP NAME:<%= Rep.find(@account.rep_id).name %></p>
+<%= button_to "Edit Account Info", edit_account_path(@account), method: "get" %>
+<h3>Edit <%= Rep.find(@account.rep_id).name %></h3>
+<%= button_to "Edit Rep Info", edit_rep_path(Rep.find(@account.rep_id)), method: "get" %>

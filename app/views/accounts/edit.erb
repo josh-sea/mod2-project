@@ -1,0 +1,17 @@
+<h1>Edit <%= @account.name %></h1>
+<div><% if @errors   %>
+<ul><% @errors.each do |error| %>
+<li><%= error %></li>
+<% end %>
+</ul>
+<% end %>
+</div>
+<%= form_for @account do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :acct_num %>
+<%= f.number_field :acct_num %><br><br>
+<%= collection_select(:account, :rep_id, Rep.all, :id, :name)%>
+<%= f.submit %>
+<% end %>
+<%= button_to "Delete", account_path(@account), method: "delete" %>

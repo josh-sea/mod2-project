@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  system_type: MyString
+  treatment_comment: MyString
+  seasonal: false
+  account_id: 1
+
+two:
+  system_type: MyString
+  treatment_comment: MyString
+  seasonal: false
+  account_id: 1
