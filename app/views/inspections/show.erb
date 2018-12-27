@@ -1,0 +1,15 @@
+<div>
+  <h1> System Info </h1>
+    <p><%= @system.system_type %></p>
+    <% if @system.seasonal == true %>
+    <p><%= "System is seasonal" %> </p>
+    <% else  %>
+    <p><%= "System is not seasonal" %></p>
+    <% end %>
+    <%= button_to "Edit", edit_system_path(@system), method: "get" %>
+</div><br><br>
+<div>
+  <h2><%= @system.system_type %> belongs to account: <%= @system.account.name%>, <%= @system.account.acct_num %></h2>
+  <%= button_to "Edit ACCT #{@system.account.acct_num}", edit_account_path(@system.account), method: "get" %>
+  <%= button_to "Delete ACCT #{@system.account.acct_num}", account_path(@system.account  ), method: "delete" %>
+</div>

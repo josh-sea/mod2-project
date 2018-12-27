@@ -1,0 +1,34 @@
+<div><% if @errors   %>
+<ul><% @errors.each do |error| %>
+<li><%= error %></li>
+<% end %>
+</ul>
+<% end %>
+</div>
+<div>
+
+<%= form_for @inspection do |f| %>
+<h1>Cooling Tower Inspection Form: </h1>
+<table style="width:100%">
+  <tr>
+    <th><%= f.label :model %></th>
+    <th>Account Name</th>
+    <th><%= f.label :reg_num %></th>
+  </tr>
+  <tr>
+    <th><%= f.text_field :model %></th>
+    <th><%= collection_select(:inspection, :account_id, Account.all, :id, :name) %></th>
+    <th><%= f.text_field :reg_num %></th>
+  </tr>
+  </table>
+  <br><br>
+  <table style="width:100%">
+  <tr>
+    <th>Tower Condition:</th>
+    <th>Basin Condition</th>
+    <th>Drift Eliminatior Condition></th>
+    <th>Something Else</th>
+  </tr>
+</table>
+<%= f.submit %>
+<% end %>
