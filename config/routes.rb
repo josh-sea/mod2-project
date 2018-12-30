@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :inspections
+  resources :inspections, except: [:inde]
   resources :systems, except: [:index]
   resources :accounts
   resources :reps

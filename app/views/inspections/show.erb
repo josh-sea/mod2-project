@@ -1,15 +1,41 @@
 <div>
-  <h1> System Info </h1>
-    <p><%= @system.system_type %></p>
-    <% if @system.seasonal == true %>
-    <p><%= "System is seasonal" %> </p>
-    <% else  %>
-    <p><%= "System is not seasonal" %></p>
-    <% end %>
-    <%= button_to "Edit", edit_system_path(@system), method: "get" %>
+  <h1> Inspection Report</h1>
+    <p><%= @inspection.account.name %><%=@inspection.account.acct_num%></p>
+    <h3> Inspection Report:<%= button_to "Edit", edit_inspection_path(@inspection), method: "get" %></h3>
+    <%= button_to "Delete Inspection", @inspection, method: "delete" %>
 </div><br><br>
 <div>
-  <h2><%= @system.system_type %> belongs to account: <%= @system.account.name%>, <%= @system.account.acct_num %></h2>
-  <%= button_to "Edit ACCT #{@system.account.acct_num}", edit_account_path(@system.account), method: "get" %>
-  <%= button_to "Delete ACCT #{@system.account.acct_num}", account_path(@system.account  ), method: "delete" %>
-</div>
+<table style="width:100%">
+  <tr>
+    <th>Model: </th>
+    <td><%= @inspection.model %> </td>
+    <th>Registration Number: </th>
+    <td><%= @inspection.reg_num %></td>
+  </tr>
+  <tr>
+    <th>System: </th>
+    <td><%= @inspection.system.system_type %> </td>
+    <th>Account Number: </th>
+    <td><%= @inspection.account.acct_num %></td>
+  </tr>
+  <tr>
+    <th>System Treatment: </th>
+    <td><%= @inspection.system.treatment_comment %> </td>
+    <th>Last Inspection: </th>
+    <td><%= @inspection.created_at %></td>
+  </tr>
+  <tr>
+    <th>Drift Eliminatior Condition</th>
+    <td align="left"><%= @inspection.fill_condition %></td>
+  </tr>
+  <tr>
+    <th>Basin Condition</th>
+    <td align="left"><%= @inspection.basin_condition %></td>
+  </tr>
+  <tr>
+    <th>Tower Condition:</th>
+    <td align="left"><%= @inspection.tower_condition %></td>
+  </tr>
+  </table>
+  </div>
+  <div><%= button_to "Edit ACCT #{@inspection.account.acct_num}", edit_account_path(@inspection.account), method: "get" %></div>

@@ -1,16 +1,32 @@
 <h1> Account Info </h1>
 <p>ACCOUNT NAME: <%= @account.name %></p>
 <p>ACCOUNT NUMBER: <%= @account.acct_num %></p>
-<p>REP NAME:<%= Rep.find(@account.rep_id).name %></p>
-<%= button_to "Edit Account Info", edit_account_path(@account), method: "get" %>
-<h3>Edit <%= Rep.find(@account.rep_id).name %></h3>
-<%= button_to "Edit Rep Info", edit_rep_path(Rep.find(@account.rep_id)), method: "get" %>
+<p>REP NAME: <%= @account.rep.name %></p>
+<h3>EDIT ACCOUNT</h3><%= button_to "EDIT ACCOUNT", edit_account_path(@account), method: "get" %>
+<h3>EDIT <%= Rep.find(@account.rep_id).name.upcase %></h3>
+<%= button_to "EDIT REP INFO", edit_rep_path(@account.rep), method: "get" %>
 <br>
-<p>_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~</p>
+<hr align="left" style="width:50%">
+<h3><%= Rep.find(@account.rep_id).name.upcase %> INFO</h3>
+<%= button_to "VIEW REP", rep_path(@account.rep), method: "get" %>
+
+<br>
+<hr align="left" style="width:50%">
 <% @account.systems.each do |system| %>
 <p>SYSTEM NAME: <%= system.system_type %></p>
 <p>SYSTEM TREATMENT: <%= system.treatment_comment %></p>
-<p>EDIT: <%= button_to "Edit #{system.system_type} Info", edit_system_path(system), method: "get" %></p>
-<p>_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~</p>
+<p>EDIT SYSTEM: <%= button_to "EDIT INFO", edit_system_path(system), method: "get" %></p>
+<p>VIEW SYSTEM: <%= button_to "VIEW INFO", system_path(system), method: "get" %></p>
+<hr align="left" style="width:50%">
 <% end %>
-<p>NEW SYSTEM: <%= button_to "Add a system", new_system_path, method: "get" %></p>
+<p>NEW SYSTEM: <%= button_to "ADD NEW SYSTEM", new_system_path, method: "get" %></p>
+<hr align="left" style="width:50%">
+
+<h1>Inspection Tracker</h1>
+<div>
+<%@account.inspections.each do |inspection| %>
+  <%= link_to "#{inspection.created_at}", inspection_path(inspection) %><br>
+<% end %>
+
+
+</div>
