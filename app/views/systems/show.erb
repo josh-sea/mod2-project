@@ -6,10 +6,10 @@
     <% else  %>
     <p><%= "System is not seasonal" %></p>
     <% end %>
-    <%= button_to "Edit", edit_system_path(@system), method: "get" %>
+    <%= button_to "Edit", edit_system_path(@system), method: "get", class: "button" %>
 </div><br><br>
 <div>
   <h2><%= @system.system_type %> belongs to account: <%= @system.account.name%>, <%= @system.account.acct_num %></h2>
-  <%= button_to "Edit ACCT #{@system.account.acct_num}", edit_account_path(@system.account), method: "get" %>
-  <%= button_to "Delete ACCT #{@system.account.acct_num}", account_path(@system.account  ), method: "delete" %>
+  <%= button_to "Edit ACCT #{@system.account.acct_num}", edit_account_path(@system.account), method: "get", class: "button" %>
+  <%= button_to "Delete ACCT #{@system.account.acct_num}", account_path(@system.account  ), method: "delete", class: "button" %>
 </div>

@@ -16,5 +16,5 @@
 <%= f.label :seasonal %>
 <%= f.check_box :seasonal %>
 <%= collection_select(:system, :account_id, Account.all, :id, :name) %>
-<%= f.submit %>
+<%= f.submit(class: "button") %>
 <% end %>

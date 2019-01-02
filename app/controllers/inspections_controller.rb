@@ -42,7 +42,7 @@ class InspectionsController < ApplicationController
   private
     ###private methods
     def inspection_params
-      params.require(:inspection).permit(:model, :reg_num, :system_id, :account_id, :fill_condition, :basin_condition, :tower_condition)
+      params.require(:inspection).permit(:model, :reg_num, :system_id, :account_id, :fill_condition, :basin_condition, :tower_condition, :inspection_date)
     end
 
     def find_inspection

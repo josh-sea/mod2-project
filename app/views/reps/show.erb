@@ -1,16 +1,32 @@
 <div>
-  <h1> Rep Info </h1>
-    <p><%= @rep.name %></p>
-    <p><%= @rep.region %></p>
-    <%= button_to "Edit", edit_rep_path(@rep), method: "get" %>
+    <h1><%= @rep.name %></h1>
+    <h3><%= @rep.region %></h3>
+    <%= button_to "Edit", edit_rep_path(@rep), method: "get", class: "button" %>
 </div><br><br>
-<div>
-  <h2><%= @rep.name %> has these accounts:</h2>
+<div class="col">
+  <h1>ACCOUNTS</h1>
   <% @rep.accounts.each do |account| %>
   <p><%= account.name %>, <%= account.acct_num %></p>
-  <%= button_to "Edit", edit_account_path(account), method: "get" %>
-  <%= button_to "Delete", account_path(account), method: "delete" %>
+  <table>
+    <tr>
+      <td><%= button_to "Account Info", account_path(account), method: "get", class: "button" %></td>
+      <td><%= button_to "Edit", edit_account_path(account), method: "get", class: "button" %></td>
+      <td><%= button_to "Delete", account_path(account), method: "delete", class: "button" %></td>
+    </tr>
+  </table>
+  <% end %>
+</div>
+<div class="col">
+  <h1 align="center">INSPECTIONS</h1>
+  <span align="center"> <%= button_to "ADD NEW INSPECTION", new_inspection_path, method: "get", class: "button" %></span><br>
+  <%@rep.accounts.each  do |account| %>
+  <h3><%= account.name %></h3>
+  <%account.inspections.each do |inspection|%>
+  <span align="center">Report Date: <%= link_to "#{inspection.inspection_date}", inspection_path(inspection) %></span><br>
+  <% end %>
   <% end %>
 
-
+</div>
+<div class="last">
+  <h1 align="center">REPORTS</h1>
 </div>

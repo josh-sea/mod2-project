@@ -26,6 +26,10 @@
     <th align="right"><%= f.label :reg_num %>:</th>
     <td><%= f.text_field :reg_num %></td>
   </tr>
+  <tr>
+    <th align="right"><%= f.label :inspection_date %>:</th>
+    <td><%= date_field(:inspection, :inspection_date) %></td>
+  </tr>
   <tr align="left">
     <th align="right">Tower Condition:</th>
     <td><%= select_tag "inspection[tower_condition]", options_for_select([ "Good Condition", "Some Noticable Aging", "Action Needed"]) %>
@@ -44,5 +48,5 @@
   </tr>
   </table>
 <br><br><br>
-<%= f.submit %>
+<%= f.submit(class: "button") %>
 <% end %>

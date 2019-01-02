@@ -4,10 +4,10 @@
 
 <%= form_tag(reps_path, method: :get) do %>
   Name: <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag 'Search', name: nil %>
+  <%= submit_tag 'Search', name: nil, class: "button" %>
 <% end %> <br>
 <% if @reps.length != Rep.all.length %>
-<%= button_to "Back", reps_path, method: "get" %>
+<%= button_to "Back", reps_path, method: "get", class: "button" %>
 <% end %>
 <br>
 

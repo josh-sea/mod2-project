@@ -1,16 +1,17 @@
-<h3>Search For an Account by Name: </h3>
 
-<%= form_tag(accounts_path, method: :get) do %>
-  Name: <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag 'Search', name: nil %>
-<% end %> <br>
-<% if @accounts.length != Account.all.length %>
-<%= button_to "Back", accounts_path, method: "get" %>
-<% end %>
-<br>
+  <h3>Search For an Account by Name: </h3>
+
+  <%= form_tag(accounts_path, method: :get) do %>
+    Name: <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag 'Search', name: nil, class: "button" %>
+  <% end %> <br>
+  <% if @accounts.length != Account.all.length %>
+  <%= button_to "Back", accounts_path, method: "get", class: "button" %>
+  <% end %>
+  <br>
 
 
-<h1>Here are All of the accounts for Barclay</h1>
-<% @accounts.each do |account| %>
-<span><%= link_to account.name, account_path(account)%></span><br>
-<% end %>
+  <h1>Here are All of the accounts for Barclay</h1>
+  <% @accounts.each do |account| %>
+  <span><%= link_to account.name, account_path(account)%></span><br>
+  <% end %>

@@ -4,9 +4,18 @@ class Account < ApplicationRecord
   has_many :inspections
 
   def last_inspection
-      inspections.select do |inspection|
-        inspection.created_at <= Time.now - 90.days
-      end
+    if self.inspections.length == 0
+      sorted = ["There are not inspections available for this account."]
+    else
+    sorted = self.inspections.sort_by &:inspection_date
+  end
+    sorted.last
+  end
+
+##this == last_inspection but not ideal. Can use this to sort a new inspection date column)
+  def last_inspection_two
+    sorted = self.inspections.sort{|a,b| a.created_at <=> b.created_at}
+    sorted.last
   end
 
 end

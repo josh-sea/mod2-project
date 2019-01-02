@@ -8,22 +8,23 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <header>
-      <div>
-        <div class ="topnav">
+      <div class="nav">
           <ul>
+            <li><span> BARCLAY WATER </span></li>
             <li><%=link_to "Accounts", accounts_path%></li>
             <li><%=link_to "Reps", reps_path%></li>
             <li><%= link_to"New Account", new_account_path%></li>
             <li><%=link_to"New Rep", new_rep_path%></li>
           </ul>
-
-
         </div>
-      </div>
     </header>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
+  <footer>
+  </footer>
 </html>

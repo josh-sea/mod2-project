@@ -11,15 +11,15 @@
 <%= f.text_field :name %>
 <%= f.label :region %>
 <%= f.text_field :region %>
-<%= f.submit %>
+<%= f.submit(class: "button")%>
 <% end %>
-<%= button_to "Delete", rep_path(@rep), method: "delete" %><br><br>
+<%= button_to "Delete", rep_path(@rep), method: "delete", class: "button" %><br><br>
 <h2>Edit/delete <%= @rep.name %> accounts</h2>
 <% @rep.accounts.each do |account| %>
 <span><label ><%= account.name %></label>
-<%= button_to "Edit", edit_account_path(account), method: "get" %></span>
-<%= button_to "Delete", account_path(account), method: "delete" %><br>
+<%= button_to "Edit", edit_account_path(account), method: "get", class: "button" %></span>
+<%= button_to "Delete", account_path(account), method: "delete", class: "button" %><br>
 <% end %>
 
 <h3>Add accounts to <%= @rep.name %></h3>
-<%= button_to "New Account", new_account_path, method: "get" %>
+<%= button_to "New Account", new_account_path, method: "get", class: "button" %>

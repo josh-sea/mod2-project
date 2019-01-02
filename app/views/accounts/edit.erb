@@ -12,6 +12,6 @@
 <%= f.label :acct_num %>
 <%= f.number_field :acct_num %><br><br>
 <%= collection_select(:account, :rep_id, Rep.all, :id, :name)%>
-<%= f.submit %>
+<%= f.submit(class: "button") %>
 <% end %>
-<%= button_to "Delete", account_path(@account), method: "delete" %>
+<%= button_to "Delete", account_path(@account), method: "delete", class: "button" %>
