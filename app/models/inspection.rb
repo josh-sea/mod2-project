@@ -12,15 +12,15 @@ class Inspection < ApplicationRecord
   end
 
   def inspection_track
-    if self == nil
-      ["Sorry no inspections availabel for this account"]
+    if self.id == nil
+      "There are no inspections available for this account."
     else
       if self.inspection_date + 90.days < Time.now
       "You are past your inspection due date, it was due #{insp_track_helper}!"
       else
-      "Your next inspection should be on #{insp_track_helper}."
+      "Your next inspection should be on: \n #{insp_track_helper}."
       end
-    end 
+    end
   end
 
   def self.systems_uniq

@@ -1,0 +1,17 @@
+
+  <h3>Search For a Test: </h3>
+
+  <%= form_tag(tests_path, method: :get) do %>
+    Name: <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag 'Search', name: nil, class: "button" %>
+  <% end %> <br>
+  <% if @tests.length != Test.all.length %>
+  <%= button_to "Back", tests_path, method: "get", class: "button" %>
+  <% end %>
+  <br>
+
+
+  <h1>Here are All of the tests for Barclay</h1>
+  <% @tests.each do |test| %>
+  <span><%= link_to test.name, test_path(test)%></span><br>
+  <% end %>

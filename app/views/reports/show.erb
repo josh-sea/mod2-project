@@ -1,0 +1,14 @@
+  <div>
+    <h1>Service Report</h1>
+      <div><h3><%= @report.account.name %>: ACCT# <%=@report.account.acct_num%></h3>
+      <table>
+        <tr>
+          <td><%= button_to "VIEW ACCT", @report.account, method: "get", class: "button" %><td>
+          <td><%= button_to "VIEW REP", @report.rep, method: "get", class: "button" %></td>
+        </tr>
+      </table>
+  </div><br><br>
+  <div>
+    <h1>Report</h1>
+    
+  </div>

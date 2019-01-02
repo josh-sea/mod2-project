@@ -7,24 +7,34 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <header>
-      <div class="nav">
-          <ul>
-            <li><span> BARCLAY WATER </span></li>
-            <li><%=link_to "Accounts", accounts_path%></li>
-            <li><%=link_to "Reps", reps_path%></li>
-            <li><%= link_to"New Account", new_account_path%></li>
-            <li><%=link_to"New Rep", new_rep_path%></li>
-          </ul>
-        </div>
-    </header>
   </head>
 
   <body>
+    <header>
+      <div class="topnav">
+        <%=link_to "Accounts", accounts_path%>
+        <%=link_to "Reps", reps_path%>
+        <%=link_to"New Report", new_report_path%>
+        <%=link_to"New Inspection", new_inspection_path%>
+
+        <%= link_to"New Account", new_account_path%>
+        <%=link_to"New Rep", new_rep_path%>
+      <div class="login-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Username" name="username">
+          <input type="text" placeholder="Password" name="psw">
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+    </header>
+
     <div class="container">
       <%= yield %>
     </div>
+    <footer>
+      <h3>Created by JoshSea 2019</h3>
+      <h3><a href="https://github.com/josh-sea" target="_blank">GitHub</a></h3>
+    </footer>
   </body>
-  <footer>
-  </footer>
 </html>

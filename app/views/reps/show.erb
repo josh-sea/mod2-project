@@ -1,7 +1,12 @@
 <div>
     <h1><%= @rep.name %></h1>
     <h3><%= @rep.region %></h3>
-    <%= button_to "Edit", edit_rep_path(@rep), method: "get", class: "button" %>
+    <table>
+      <tr>
+        <td><%= button_to "Edit", edit_rep_path(@rep), method: "get", class: "button" %></td>
+        <td><%= button_to "BACK", reps_path, method: "get", class: "button" %></td>
+      </tr>
+    </table>
 </div><br><br>
 <div class="col">
   <h1>ACCOUNTS</h1>

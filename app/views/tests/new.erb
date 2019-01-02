@@ -1,0 +1,22 @@
+  <h1> Add a new Test </h1>
+  <div><% if @errors   %>
+  <ul><% @errors.each do |error| %>
+  <li><%= error %></li>
+  <% end %>
+  </ul>
+  <% end %>
+  </div>
+  <div>
+
+  <%= form_for @test do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :reading %>
+  <%= f.number_field :reading %>
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
+  <%= f.label :report_id %>
+  <input type="hidden" name="test[report_id]" id="test_report_id" value="2">
+  <%= f.submit(class: "button") %>
+  <% end %>
+  </div>

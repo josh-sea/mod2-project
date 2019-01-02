@@ -2,10 +2,11 @@ class Account < ApplicationRecord
   belongs_to :rep
   has_many :systems
   has_many :inspections
+  has_many :reports
 
   def last_inspection
     if self.inspections.length == 0
-      sorted = ["There are not inspections available for this account."]
+      sorted = [Inspection.new()]
     else
     sorted = self.inspections.sort_by &:inspection_date
   end

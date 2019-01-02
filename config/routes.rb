@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tests
+  resources :reports
   resources :inspections, except: [:index]
   resources :systems, except: [:index]
   resources :accounts

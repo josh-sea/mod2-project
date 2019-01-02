@@ -17,5 +17,10 @@
 <%= collection_select(:system, :account_id, Account.all, :id, :name) %>
 <%= f.submit(class: "button") %>
 <% end %>
-
-<%= button_to "Delete", system_path(@system), method: "delete", class: "button" %>
+<table>
+  <tr>
+    <td><%= button_to "Delete", system_path(@system), method: "delete", class: "button" %></td>
+    <td><%= button_to "ACCT", @system.account, method: "get", class: "button" %></td>
+    <td><%= button_to "REP ACCT", @system.account.rep, method: "get", class: "button" %></td>
+  </tr>
+</table>

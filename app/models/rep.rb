@@ -1,5 +1,6 @@
 class Rep < ApplicationRecord
   has_many :accounts
+  has_many :reports
 
   def sort_account_inspections
     sorted_hash = {}

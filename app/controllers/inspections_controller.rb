@@ -49,4 +49,4 @@ class InspectionsController < ApplicationController
       @inspection = Inspection.find(params[:id])
     end
 
-end
+end #end of inspection controller class

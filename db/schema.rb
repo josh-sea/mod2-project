@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_01_221452) do
+ActiveRecord::Schema.define(version: 2019_01_02_150530) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 2019_01_01_221452) do
     t.datetime "inspection_date"
   end
 
+  create_table "reports", force: :cascade do |t|
+    t.integer "rep_id"
+    t.integer "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reps", force: :cascade do |t|
     t.string "name"
     t.string "region"
@@ -48,6 +55,15 @@ ActiveRecord::Schema.define(version: 2019_01_01_221452) do
     t.string "treatment_comment"
     t.boolean "seasonal"
     t.integer "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.string "name"
+    t.float "reading"
+    t.string "comment"
+    t.integer "report_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

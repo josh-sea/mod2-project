@@ -1,0 +1,27 @@
+
+
+<div><% if @errors   %>
+<ul><% @errors.each do |error| %>
+<li><%= error %></li>
+<% end %>
+</ul>
+<% end %>
+</div>
+<div>
+
+<%= form_for @report do |f| %>
+<h1>System Reports: </h1>
+<table style="width:30%">
+  <tr align="left">
+    <th align="right"><%= f.label :rep_id %>:</th>
+    <td><%= collection_select(:report, :rep_id, Rep.all, :id, :name) %></td>
+  </tr>
+  <tr align="left">
+    <th align="right"><%= f.label :account_id %></th>
+    <td><%= collection_select(:report, :account_id, Account.all, :id, :name) %></td>
+  </tr>
+  </table>
+<br><br><br>
+<%= button_to "DELETE REPORT", @report, method: "destroy", class: "button" %>
+<%= f.submit(class: "button") %>
+<% end %>
