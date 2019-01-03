@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(version: 2019_01_02_150530) do
     t.integer "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "tower_contion"
-    t.string "tower_condiion"
     t.string "basin_condition"
     t.string "tower_condition"
     t.string "fill_condition"
@@ -46,6 +44,8 @@ ActiveRecord::Schema.define(version: 2019_01_02_150530) do
   create_table "reps", force: :cascade do |t|
     t.string "name"
     t.string "region"
+    t.string "username"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

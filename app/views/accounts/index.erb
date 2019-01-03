@@ -11,7 +11,7 @@
   <br>
 
 
-  <h1>Here are All of the accounts for Barclay</h1>
+  <h1><%= current_rep.name.upcase %> ACCOUNTS</h1>
   <% @accounts.each do |account| %>
   <span><%= link_to account.name, account_path(account)%></span><br>
   <% end %>

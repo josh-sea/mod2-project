@@ -7,19 +7,31 @@
 <% end %>
 </div>
 <%= form_for @rep do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label :region %>
-<%= f.text_field :region %>
+<%= f.label :name %><br>
+<%= f.text_field :name %><br><br>
+<%= f.label :region %><br>
+<%= f.text_field :region %><br><br>
+<%= f.label :username%><br>
+<%= f.text_field :username%><br><br>
+<%= f.label :password %><br>
+<%= f.password_field :password %><br><br>
 <%= f.submit(class: "button")%>
 <% end %>
 <%= button_to "Delete", rep_path(@rep), method: "delete", class: "button" %><br><br>
+
+<div class="btn-group">
+
+</div>
 <h2>Edit/delete <%= @rep.name %> accounts</h2>
-<% @rep.accounts.each do |account| %>
-<span><label ><%= account.name %></label>
-<%= button_to "Edit", edit_account_path(account), method: "get", class: "button" %></span>
-<%= button_to "Delete", account_path(account), method: "delete", class: "button" %><br>
-<% end %>
+
+    <% @rep.accounts.each do |account| %>
+    <label ><%= account.name %></label><br>
+    <div class="btn-group">
+    <%= button_to "Edit", edit_account_path(account), method: "get", class: "button" %>
+    <%= button_to "Delete", account_path(account), method: "delete", class: "button" %>
+  </div>
+  <% end %>
+
 
 <h3>Add accounts to <%= @rep.name %></h3>
 <%= button_to "New Account", new_account_path, method: "get", class: "button" %>

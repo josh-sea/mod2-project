@@ -1,10 +1,12 @@
 class AccountsController < ApplicationController
 before_action :find_account, only: [:show, :edit, :update, :destroy]
+before_action :authorized
+
   def index
-      if Account.where('name LIKE ?', "%#{params[:search]}%").length > 0
-        @accounts  = Account.where('name LIKE ?', "%#{params[:search]}%")
+      if current_rep.accounts.where('name LIKE ?', "%#{params[:search]}%").length > 0
+        @accounts  = current_rep.accounts.where('name LIKE ?', "%#{params[:search]}%")
       else
-        @accounts = Account.all
+        @accounts = current_rep.accounts
       #implicit index render
       end
     end
@@ -53,4 +55,9 @@ before_action :find_account, only: [:show, :edit, :update, :destroy]
     def find_account
       @account = Account.find(params[:id])
     end
+
+    def require_login
+      return head(:forbidden) unless session.include? :username
+    end
+
 end

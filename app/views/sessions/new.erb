@@ -1,0 +1,17 @@
+<div><% if flash[:errors]%>
+<h3><%= flash[:errors] %></h3>
+<% end %>
+</div>
+
+<div class="jumbotron">
+  <h1 class="display-4"><span class="fas fa-tint fa-spin" style="color:#1d5dab;margin-right:15px"></span>Login Required</h1>
+  <hr class="my-4">
+  <%= form_tag login_path do %>
+   <%= label_tag "Username" %>
+   <%= text_field_tag :username %>
+   <%= label_tag "Password" %>
+   <%= password_field_tag :password %><br><BR>
+   <%= submit_tag "Sign In", class: "btn btn-primary btn-lg"%>
+   <hr class="my-4">
+   <% end %>
+</div>

@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
   before_action :find_report, only: [:show, :edit, :update]
+  before_action :authorized
 
     def show
     end

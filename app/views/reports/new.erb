@@ -11,12 +11,11 @@
   <h1>System Reports: </h1>
   <table style="width:30%">
     <tr align="left">
-      <th align="right"><%= f.label :rep_id %>:</th>
-      <td><%= collection_select(:report, :rep_id, Rep.all, :id, :name) %></td>
+      <td><input type="hidden" name="rep_id" value="current_rep.id"></td>
     </tr>
     <tr align="left">
       <th align="right"><%= f.label :account_id %></th>
-      <td><%= collection_select(:report, :account_id, Account.all, :id, :name) %></td>
+      <td><%= collection_select(:report, :account_id, current_rep.accounts, :id, :name) %></td>
     </tr>
     </table>
   <br><br><br>

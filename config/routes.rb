@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :tests
-  resources :reports
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
+  resources :tests, except: [:index]
+  resources :reports, except: [:index]
   resources :inspections, except: [:index]
   resources :systems, except: [:index]
   resources :accounts

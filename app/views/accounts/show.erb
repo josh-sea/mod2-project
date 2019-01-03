@@ -4,9 +4,11 @@
     <p>ACCOUNT NAME: <%= @account.name %></p>
     <p>ACCOUNT NUMBER: <%= @account.acct_num %></p>
     <p>REP NAME: <%= @account.rep.name %></p>
-    <span align="center"><%= button_to "EDIT ACCOUNT", edit_account_path(@account), method: "get", class: "button"%></span>
-    <span align="center"><%= button_to "EDIT REP INFO", edit_rep_path(@account.rep), method: "get", class: "button" %></span>
-    <span align="center"><%= button_to "VIEW REP", rep_path(@account.rep), method: "get", class: "button" %></span>
+    <div class="btn-group">
+      <span align="center"><%= button_to "EDIT ACCOUNT", edit_account_path(@account), method: "get", class: "button"%></span>
+      <span align="center"><%= button_to "EDIT REP INFO", edit_rep_path(@account.rep), method: "get", class: "button" %></span>
+      <span align="center"><%= button_to "VIEW REP", rep_path(@account.rep), method: "get", class: "button" %></span>
+    </div>
   </div>
   <div class="col">
     <h1 align="center">SYSTEMS</h1>
@@ -22,7 +24,7 @@
   </div>
   <div class="last">
     <h1 align="center">INSPECTIONS</h1>
-    <h3><%=@account.last_inspection.inspection_track %></h3>
+    <h5><%=@account.last_inspection.inspection_track %></h5>
     <span align="center"> <%= button_to "ADD NEW INSPECTION", new_inspection_path, method: "get", class: "button" %></span><br>
     <%@account.inspections.each do |inspection| %>
     <span align="center">Report Date: <%= link_to "#{inspection.inspection_date}", inspection_path(inspection) %></span><br>

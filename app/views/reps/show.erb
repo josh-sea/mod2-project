@@ -34,4 +34,7 @@
 </div>
 <div class="last">
   <h1 align="center">REPORTS</h1>
+  <% @rep.reports.each do |report| %>
+  <span align="center"><%=link_to "#{report.account.name}:  #{report.created_at.strftime("%^B %m %Y")}", report_path(report)%><br></span>
+  <% end %>
 </div>
