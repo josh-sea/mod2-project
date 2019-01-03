@@ -234,3 +234,9 @@ body span a:active {
 background-color: #1d5dab;
 color: #e9e9e9;
 }
+
+
+header nav ul li:hover {
+  background-color: #1d5dab;
+  color: #e9e9e9;
+}

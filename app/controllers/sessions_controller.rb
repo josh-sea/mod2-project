@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
-  before_action :authorized
   skip_before_action :authorized, only: [:new, :signup, :create]
+  layout false, only: [:new]
 
   def new
     #implicit sessions new render
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     @rep = Rep.find_by(username: params[:username])
     if @rep && @rep.authenticate(params[:password])
       session[:rep_id] = @rep.id
-      redirect_to @rep
+      redirect_to accounts_path
     else
       flash[:notice] = 'Invalid username or password'
       redirect_to login_path

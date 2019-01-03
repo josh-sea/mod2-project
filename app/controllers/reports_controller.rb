@@ -1,22 +1,22 @@
 class ReportsController < ApplicationController
   before_action :find_report, only: [:show, :edit, :update]
-  before_action :authorized
 
     def show
     end
 
     def new
-      @report = Report.new
+      @report = Report.new(rep_id: current_rep.id)
       #implicit new render
     end
 
     def create
+      byebug
       @report = Report.create(report_params)
       if @report.valid?
         redirect_to @report
       else
         @errors = @report.errors.full_messages
-        render :edit
+        render :new
       end
     end
 

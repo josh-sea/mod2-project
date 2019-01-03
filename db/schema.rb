@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 2019_01_02_150530) do
     t.string "name"
     t.float "reading"
     t.string "comment"
-    t.integer "report_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

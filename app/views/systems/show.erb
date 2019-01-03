@@ -10,6 +10,8 @@
 </div><br><br>
 <div>
   <h2><%= @system.system_type %> belongs to account: <%= @system.account.name%>, <%= @system.account.acct_num %></h2>
+  <div class="btn-group"
   <%= button_to "EDIT ACCT #{@system.account.acct_num}", edit_account_path(@system.account), method: "get", class: "button" %>
   <%= button_to "BACK TO ACCT", @system.account, method: "get", class: "button" %>
+  </div>
 </div>

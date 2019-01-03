@@ -8,7 +8,25 @@
         </tr>
       </table>
   </div><br><br>
-  <div>
+  <div class="container">
     <h1>Report</h1>
-    
-  </div>
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">TEST NAME</th>
+      <th scope="col">READING</th>
+      <th scope="col">COMMENTS</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @report.tests.each do |test|%>
+    <tr>
+      <td><%= test.name%> </td>
+      <td><%= test.reading%> </td>
+      <td><%= test.comment%> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

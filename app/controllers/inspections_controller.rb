@@ -1,6 +1,5 @@
 class InspectionsController < ApplicationController
   before_action :find_inspection, only: [:show, :edit, :update, :destroy]
-  before_action :authorized
   
     def show
     end

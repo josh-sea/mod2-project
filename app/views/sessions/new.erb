@@ -1,17 +1,42 @@
-<div><% if flash[:errors]%>
-<h3><%= flash[:errors] %></h3>
-<% end %>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Barclay</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-<div class="jumbotron">
-  <h1 class="display-4"><span class="fas fa-tint fa-spin" style="color:#1d5dab;margin-right:15px"></span>Login Required</h1>
-  <hr class="my-4">
-  <%= form_tag login_path do %>
-   <%= label_tag "Username" %>
-   <%= text_field_tag :username %>
-   <%= label_tag "Password" %>
-   <%= password_field_tag :password %><br><BR>
-   <%= submit_tag "Sign In", class: "btn btn-primary btn-lg"%>
-   <hr class="my-4">
-   <% end %>
-</div>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="application.css">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/solid.css" integrity="sha384-+0VIRx+yz1WBcCTXBkVQYIBVNEFH1eP6Zknm16roZCyeNg2maWEpk/l/KsyFKs7G" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/regular.css" integrity="sha384-aubIA90W7NxJ+Ly4QHAqo1JBSwQ0jejV75iHhj59KRwVjLVHjuhS3LkDAoa/ltO4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/brands.css" integrity="sha384-1KLgFVb/gHrlDGLFPgMbeedi6tQBLcWvyNUN+YKXbD7ZFbjX6BLpMDf0PJ32XJfX" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/fontawesome.css" integrity="sha384-jLuaxTTBR42U2qJ/pm4JRouHkEDHkVqH0T1nyQXn1mZ7Snycpf6Rl25VBNthU4z0" crossorigin="anonymous">
+  </head>
+
+  <body>
+<div class="container">
+    <div class="jumbotron">
+      <div><% if flash[:errors]%>
+      <h3><%= flash[:errors] %></h3>
+      <% end %>
+      </div>
+      <h1 class="display-4" align="center"><span class="fas fa-tint fa-spin" style="color:#1d5dab;margin-right:15px"></span>Login Required</h1>
+      <hr class="my-4">
+      <span align="center">
+      <%= form_tag login_path do %>
+       <%= label_tag "Username" %>
+       <%= text_field_tag :username %>
+       <%= label_tag "Password" %>
+       <%= password_field_tag :password %><br><BR>
+       <%= submit_tag "Sign In", class: "btn btn-primary btn-lg"%>
+       </span>
+       <hr class="my-4">
+       <% end %>
+    </div>
+  </div>
+  <footer>
+    <h6>Created by JoshSea 2019</h6>
+    <h6><a href="https://github.com/josh-sea" target="_blank">GitHub</a></h6>
+  </footer>

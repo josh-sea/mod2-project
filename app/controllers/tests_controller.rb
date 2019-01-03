@@ -1,6 +1,5 @@
 class TestsController < ApplicationController
   before_action :find_test, only: [:show, :edit, :update, :destroy]
-  before_action :authorized
 
 
   def index

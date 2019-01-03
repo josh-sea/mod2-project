@@ -1,6 +1,6 @@
 class SystemsController < ApplicationController
   before_action :find_system, only: [:show, :edit, :update, :destroy]
-  before_action :authorized
+  
     def show
     end
 

@@ -6,18 +6,8 @@
 <% end %>
 </div>
 <div>
-
-  <%= form_for @report do |f| %>
   <h1>System Reports: </h1>
-  <table style="width:30%">
-    <tr align="left">
-      <td><input type="hidden" name="rep_id" value="current_rep.id"></td>
-    </tr>
-    <tr align="left">
-      <th align="right"><%= f.label :account_id %></th>
-      <td><%= collection_select(:report, :account_id, current_rep.accounts, :id, :name) %></td>
-    </tr>
-    </table>
-  <br><br><br>
+  <%= form_for @report do |f| %>
+  <%= collection_select(:report, :account_id, current_rep.accounts, :id, :name) %>
   <%= f.submit(class: "button") %>
   <% end %>

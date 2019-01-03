@@ -5,7 +5,7 @@
     Name: <%= text_field_tag :search, params[:search] %>
     <%= submit_tag 'Search', name: nil, class: "button" %>
   <% end %> <br>
-  <% if @accounts.length != Account.all.length %>
+  <% if @accounts.length != current_rep.accounts.length %>
   <%= button_to "Back", accounts_path, method: "get", class: "button" %>
   <% end %>
   <br>

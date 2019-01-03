@@ -16,7 +16,7 @@
   <%= f.label :comment %>
   <%= f.text_area :comment %>
   <%= f.label :report_id %>
-  <input type="hidden" name="test[report_id]" id="test_report_id" value="2">
+  <%= f.collection_select %>
   <%= f.submit(class: "button") %>
   <% end %>
   </div>

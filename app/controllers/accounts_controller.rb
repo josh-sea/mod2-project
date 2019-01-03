@@ -1,6 +1,5 @@
 class AccountsController < ApplicationController
 before_action :find_account, only: [:show, :edit, :update, :destroy]
-before_action :authorized
 
   def index
       if current_rep.accounts.where('name LIKE ?', "%#{params[:search]}%").length > 0
