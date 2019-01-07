@@ -1,13 +1,44 @@
-<div><% if @errors   %>
-<ul><% @errors.each do |error| %>
-<li><%= error %></li>
-<% end %>
-</ul>
-<% end %>
-</div>
-<div>
-  <h1>System Reports: </h1>
-  <%= form_for @report do |f| %>
-  <%= collection_select(:report, :account_id, current_rep.accounts, :id, :name) %>
-  <%= f.submit(class: "button") %>
-  <% end %>
+  <div class="jumbotron" style="max-width:80%;margin-left:10%">
+    <div class="col-lg" align="center">
+      <div>
+        <% if @errors%>
+          <ul><% @errors.each do |error| %>
+            <li style="text-decoration:none"><%= error %></li>
+          <% end %>
+          </ul>
+        <% end %>
+      </div>
+
+    <h1>System Reports: </h1>
+    <br><br>
+    <% if @account %>
+      <% if @account.systems.length == 0 %>
+        <h6>No systems available. Please select a different account or create a new system</h6>
+          <%= button_to "ADD SYSTEM", new_system_path, method: "get", class: "button" %><br>
+          <%= form_tag new_report_path, method: :get  do %>
+              <%= collection_select(:system, :account_id, current_rep.accounts, :id, :name) %><br>
+              <%= submit_tag 'Systems', name: nil, class: "button" %>
+          <% end %>
+      <% else %>
+        <h6>Please select a system</h6>
+        <%= form_for @report do |f| %>
+          <%= hidden_field(:report, :rep_id, :value => current_rep.id) %>
+          <%= collection_select(:report, :system_id, @account.systems, :id, :system_type)%><br>
+          <%= f.submit(class: "button") %>
+        <% end %><br>
+        <h6>You can also select a different account</h6>
+        <%= form_tag new_report_path, method: :get  do %>
+            <%= collection_select(:system, :account_id, current_rep.accounts, :id, :name) %><br>
+            <%= submit_tag 'Systems', name: nil, class: "button" %>
+          <% end %>
+      <% end %>
+    <% else %>
+      <h6>Please select an account to review its systems</h6>
+      <%= form_tag new_report_path, method: :get  do %>
+        <%= collection_select(:system, :account_id, current_rep.accounts, :id, :name) %><br>
+        <%= submit_tag 'Systems', name: nil, class: "button" %>
+      <% end %>
+    <% end %>
+
+    </div>
+  </div>

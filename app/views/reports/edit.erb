@@ -1,6 +1,5 @@
-
-
-<div><% if @errors   %>
+<div class="jumbotron" style="max-width:80%;margin-left:10%">
+  <div><% if @errors   %>
 <ul><% @errors.each do |error| %>
 <li><%= error %></li>
 <% end %>
@@ -18,10 +17,11 @@
   </tr>
   <tr align="left">
     <th align="right"><%= f.label :account_id %></th>
-    <td><%= collection_select(:report, :account_id, Account.all, :id, :name) %></td>
+    <td><%= collection_select(:report, :system_id, Account.all, :id, :name) %></td>
   </tr>
   </table>
 <br><br><br>
 <%= button_to "DELETE REPORT", @report, method: "destroy", class: "button" %>
 <%= f.submit(class: "button") %>
 <% end %>
+</div>

@@ -1,7 +1,8 @@
 
+<div class="jumbotron" style="max-width:50%;margin-left:25%">
+<h3 align="center">Search For a Rep by Name: </h3>
 
-<h3>Search For a Rep by Name: </h3>
-
+<div align="center">
 <%= form_tag(reps_path, method: :get) do %>
   Name: <%= text_field_tag :search, params[:search] %>
   <%= submit_tag 'Search', name: nil, class: "button" %>
@@ -16,3 +17,6 @@
 <% @reps.each do |rep| %>
 <span><%= link_to rep.name, rep_path(rep)%></span><br>
 <% end %>
+
+</div>
+</div>

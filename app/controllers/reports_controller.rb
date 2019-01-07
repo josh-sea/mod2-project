@@ -5,15 +5,22 @@ class ReportsController < ApplicationController
     end
 
     def new
-      @report = Report.new(rep_id: current_rep.id)
-      #implicit new render
+      if params[:system]
+        @account = Account.find(params[:system][:account_id])
+        @report = Report.new(rep_id: current_rep.id)
+        render :new
+      else
+        @report = Report.new(rep_id: current_rep.id)
+        render :new
+      end
     end
 
     def create
-      byebug
       @report = Report.create(report_params)
       if @report.valid?
-        redirect_to @report
+        @test = Test.all.find(1)
+        @test2 = Test.all.find(2)
+        render :new_report
       else
         @errors = @report.errors.full_messages
         render :new
@@ -43,7 +50,7 @@ class ReportsController < ApplicationController
   private
     ###private methods
     def report_params
-      params.require(:report).permit(:rep_id, :account_id)
+      params.require(:report).permit(:rep_id, :system_id)
     end
 
     def find_report

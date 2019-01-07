@@ -1,5 +1,4 @@
-
-
+<div class="jumbotron" style="max-width:80%;margin-left:10%">
 <div><% if @errors   %>
 <ul><% @errors.each do |error| %>
 <li><%= error %></li>
@@ -7,44 +6,55 @@
 </ul>
 <% end %>
 </div>
-<div>
 
 <%= form_for @inspection do |f| %>
-<h1>Cooling Tower Inspection Form: </h1>
-<table style="width:30%">
-  <tr align="left">
-    <th align="right"><%= f.label :model %>:</th>
-    <td><%= f.text_field :model %></td>
-  </tr>
-  <tr align="left">
-    <th align="right">Account Name:</th>
-    <td><%= collection_select(:inspection, :account_id, Account.all, :id, :name) %></td>
-  </tr>
-  <tr align="left">
-    <th align="right">System Name:</th>
-    <td><%= collection_select(:inspection, :system_id, System.all, :id, :system_type) %></td>
-  </tr>
-    <tr>
-    <th align="right"><%= f.label :reg_num %>:</th>
-    <td><%= f.text_field :reg_num %></td>
-  </tr>
-  <tr align="left">
-    <th align="right">Tower Condition:</th>
-    <td><%= select_tag "inspection[tower_condition]", options_for_select([ "Good Condition", "Some Noticable Aging", "Action Needed"], "#{@inspection.tower_condition}") %>
-</td>
-  </tr>
-  <tr align="left">
-    <th align="right">Basin Condition</th>
+<h1 align="center">Cooling Tower Inspection Form: </h1>
+<table  align="center" style="width:50%">
+  <tr>
     <td>
-<%= select_tag "inspection[basin_condition]", options_for_select([ "Good Condition", "Some Noticable Aging", "Action Needed"], "#{@inspection.basin_condition}") %>
+      <table align="center">
+        <tr align="left">
+          <th align="right"><%= f.label :model %>:</th>
+          <td><%= f.text_field :model %></td>
+        </tr>
+        <tr align="left">
+          <th align="right">Account Name:</th>
+          <td><%= collection_select(:inspection, :account_id, Account.all, :id, :name) %></td>
+        </tr>
+        <tr align="left">
+          <th align="right">System Name:</th>
+          <td><%= collection_select(:inspection, :system_id, System.all, :id, :system_type) %></td>
+        </tr>
+          <tr>
+          <th align="right"><%= f.label :reg_num %>:</th>
+          <td><%= f.text_field :reg_num %></td>
+        </tr>
+        <tr align="left">
+          <th align="right">Tower Condition:</th>
+          <td><%= select_tag "inspection[tower_condition]", options_for_select([ "Good Condition", "Some Noticable Aging", "Action Needed"], "#{@inspection.tower_condition}") %>
+      </td>
+        </tr>
+        <tr align="left">
+          <th align="right">Basin Condition</th>
+          <td>
+      <%= select_tag "inspection[basin_condition]", options_for_select([ "Good Condition", "Some Noticable Aging", "Action Needed"], "#{@inspection.basin_condition}") %>
+        </td>
+        </tr>
+          <tr>
+          <th align="right" style="padding-right:15px">Drift Eliminatior Condition</th>
+          <td><%= select_tag "inspection[fill_condition]", options_for_select([ "Good Condition", "Some Noticable Aging", "Action Needed"], "#{@inspection.fill_condition}") %>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr >
+    <td align="center" style="padding-top:10px"><%= f.submit(class: "button") %>
+    <% end %>
   </td>
   </tr>
-    <tr>
-    <th align="right">Drift Eliminatior Condition</th>
-    <td><%= select_tag "inspection[fill_condition]", options_for_select([ "Good Condition", "Some Noticable Aging", "Action Needed"], "#{@inspection.fill_condition}") %>
-</td>
-  </tr>
-  </table>
+</table>
+
 <br><br><br>
-<%= f.submit(class: "button") %>
-<% end %>
+
+</div>

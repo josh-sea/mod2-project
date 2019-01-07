@@ -2,7 +2,6 @@ class Account < ApplicationRecord
   belongs_to :rep
   has_many :systems
   has_many :inspections
-  has_many :reports
 
   def last_inspection
     if self.inspections.length == 0

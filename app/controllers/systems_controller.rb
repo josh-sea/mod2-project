@@ -1,11 +1,12 @@
 class SystemsController < ApplicationController
   before_action :find_system, only: [:show, :edit, :update, :destroy]
-  
+
     def show
     end
 
     def new
       @system = System.new
+      @product = Product.new
       #implicit new render
     end
 

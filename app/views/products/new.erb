@@ -11,13 +11,18 @@
   <div>
 <table align="center">
   <tr>
-    <td>  <%= form_for @test do |f| %>
+    <td>  <%= form_for @product do |f| %>
       <%= f.label :name %><br>
       <%= f.text_field :name %><br><br>
-      <%= f.label :reading %><br>
-      <%= f.number_field :reading %><br><br>
-      <%= f.label :comment %><br>
-      <%= f.text_area :comment %><br><br>
+      <%= f.label :system_id %><br>
+      <%= f.number_field :system_id %><br><br>
+      <%= f.label :test_name %><br>
+      <% Test.all.each do |test| %>
+      <select name="test_id">
+        <%= test.id %>
+      </select>
+      <% end %>
+      <br><br>
     </td>
   </tr>
   <tr>

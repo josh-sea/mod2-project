@@ -1,20 +1,19 @@
-  <h1> Add a new Account </h1>
-  <div><% if @errors   %>
-  <ul><% @errors.each do |error| %>
-  <li><%= error %></li>
-  <% end %>
-  </ul>
-  <% end %>
-  </div>
-  <div>
-
-  <%= form_for @account do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :acct_num %>
-  <%= f.number_field :acct_num %>
-  <%= f.label :rep_id %>
-  <%= collection_select(:account, :rep_id, Rep.all, :id, :name) %>
-  <%= f.submit(class: "button") %>
-  <% end %>
+  <div class="jumbotron">
+    <h1> Add a new Account </h1>
+    <div><% if @errors   %>
+    <ul><% @errors.each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+    </ul>
+    <% end %>
+    </div>
+    <%= form_for @account do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :acct_num %>
+    <%= f.number_field :acct_num %>
+    <%= f.label :rep_id %>
+    <%= collection_select(:account, :rep_id, Rep.all, :id, :name) %>
+    <%= f.submit(class: "button") %>
+    <% end %>
   </div>

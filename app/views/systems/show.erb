@@ -1,17 +1,21 @@
-<div>
-  <h1> System Info </h1>
-    <p><%= @system.system_type %></p>
-    <% if @system.seasonal == true %>
-    <p><%= "System is seasonal" %> </p>
-    <% else  %>
-    <p><%= "System is not seasonal" %></p>
-    <% end %>
-    <%= button_to "Edit", edit_system_path(@system), method: "get", class: "button" %>
-</div><br><br>
-<div>
-  <h2><%= @system.system_type %> belongs to account: <%= @system.account.name%>, <%= @system.account.acct_num %></h2>
-  <div class="btn-group"
-  <%= button_to "EDIT ACCT #{@system.account.acct_num}", edit_account_path(@system.account), method: "get", class: "button" %>
-  <%= button_to "BACK TO ACCT", @system.account, method: "get", class: "button" %>
+<div class="jumbotron" style="max-width:50%;margin-left:20%">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 align="center"> System Info </h1>
+      <% if @system.seasonal == true %>
+      <p align="center"><%= "System is seasonal" %> </p>
+      <% else  %>
+      <p align="center"><%= "System runs year round" %></p>
+      <% end %>
+      <span align="center"><%= button_to "Edit", edit_system_path(@system), method: "get", class: "button" %></span>
+
+      <h2 align="center"><%= @system.account.name%> ACCT# <%= @system.account.acct_num %></h2>
+      <h2 align="center"><%= @system.system_type %></h2>
+      <span align="center">
+        <%= button_to "EDIT ACCT #{@system.account.acct_num}", edit_account_path(@system.account), method: "get", class: "button" %>
+        <%= button_to "BACK TO ACCT", @system.account, method: "get", class: "button" %>
+        </span>
+
+</div>
   </div>
 </div>

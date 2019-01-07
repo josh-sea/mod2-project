@@ -1,12 +1,16 @@
-<h1> Add a Rep to the Company! </h1>
-<%= form_for @rep do |f| %>
-<%= f.label :name %><br>
-<%= f.text_field :name %><br><br>
-<%= f.label :region %><br>
-<%= f.text_field :region %><br><br>
-<%= f.label :username %><br>
-<%= f.text_field :username %><br><br>
-<%= f.label :password %><br>
-<%= f.text_field :password %><br><br>
-<%= f.submit(class: "button") %>
-<% end %>
+<div class="jumbotron" style="max-width:50%;margin-left:25%">
+<h1 align="center"> Add a new rep </h1>
+<div align="center">
+  <%= form_for @rep do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br><br>
+  <%= f.label :region %><br>
+  <%= f.text_field :region %><br><br>
+  <%= f.label :username %><br>
+  <%= f.text_field :username %><br><br>
+  <%= f.label :password %><br>
+  <%= f.text_field :password %><br><br>
+  <%= f.submit(class: "button") %>
+  <% end %>
+</div>
+</div>

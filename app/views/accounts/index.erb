@@ -1,17 +1,25 @@
+<div class="jumbotron" style="max-width:50%;margin-left:25%">
+  <h3 align="center">Search For an Account by Name: </h3>
+  <div align="center">
+    <table>
+      <tr>
+        <td><%= form_tag(accounts_path, method: :get) do %>
+          Name: <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag 'Search', name: nil, class: "button" %>
+          <% end %>
+        </td>
+        <td><% if @accounts.length != current_rep.accounts.length %>
+              <%= button_to "Back", accounts_path, method: "get", class: "button" %>
+            <% end %>
+        </td>
+      </tr>
+    </table>
+      <br>
+      <hr>
 
-  <h3>Search For an Account by Name: </h3>
-
-  <%= form_tag(accounts_path, method: :get) do %>
-    Name: <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag 'Search', name: nil, class: "button" %>
-  <% end %> <br>
-  <% if @accounts.length != current_rep.accounts.length %>
-  <%= button_to "Back", accounts_path, method: "get", class: "button" %>
-  <% end %>
-  <br>
-
-
-  <h1><%= current_rep.name.upcase %> ACCOUNTS</h1>
-  <% @accounts.each do |account| %>
-  <span><%= link_to account.name, account_path(account)%></span><br>
-  <% end %>
+      <h1><%= current_rep.name.upcase %> ACCOUNTS</h1>
+      <% @accounts.each do |account| %>
+      <span><%= link_to account.name, account_path(account)%></span><br>
+      <% end %>
+</div>
+  </div>

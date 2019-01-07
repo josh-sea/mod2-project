@@ -1,6 +1,6 @@
-<div>
+<div class="container">
     <h1><%= @rep.name %></h1>
-    <h3><%= @rep.region %></h3>
+    <h3>Region: <%= @rep.region %></h3>
     <table>
       <tr>
         <td><%= button_to "Edit", edit_rep_path(@rep), method: "get", class: "button" %></td>
@@ -8,33 +8,38 @@
       </tr>
     </table>
 </div><br><br>
-<div class="col">
-  <h1>ACCOUNTS</h1>
-  <% @rep.accounts.each do |account| %>
-  <p><%= account.name %>, <%= account.acct_num %></p>
-  <table>
-    <tr>
-      <td><%= button_to "Account Info", account_path(account), method: "get", class: "button" %></td>
-      <td><%= button_to "Edit", edit_account_path(account), method: "get", class: "button" %></td>
-      <td><%= button_to "Delete", account_path(account), method: "delete", class: "button" %></td>
-    </tr>
-  </table>
-  <% end %>
-</div>
-<div class="col">
-  <h1 align="center">INSPECTIONS</h1>
-  <span align="center"> <%= button_to "ADD NEW INSPECTION", new_inspection_path, method: "get", class: "button" %></span><br>
-  <%@rep.accounts.each  do |account| %>
-  <h3><%= account.name %></h3>
-  <%account.inspections.each do |inspection|%>
-  <span align="center">Report Date: <%= link_to "#{inspection.inspection_date}", inspection_path(inspection) %></span><br>
-  <% end %>
-  <% end %>
-
-</div>
-<div class="last">
-  <h1 align="center">REPORTS</h1>
-  <% @rep.reports.each do |report| %>
-  <span align="center"><%=link_to "#{report.account.name}:  #{report.created_at.strftime("%^B %m %Y")}", report_path(report)%><br></span>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h1>ACCOUNTS</h1>
+      <% @rep.accounts.each do |account| %>
+      <p><%= account.name %>, <%= account.acct_num %></p>
+      <table>
+        <tr>
+          <td><%= button_to "Account Info", account_path(account), method: "get", class: "button" %></td>
+          <td><%= button_to "Edit", edit_account_path(account), method: "get", class: "button" %></td>
+          <td><%= button_to "Delete", account_path(account), method: "delete", class: "button" %></td>
+        </tr>
+      </table><br>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <h1 align="center">INSPECTIONS</h1>
+      <span align="center"> <%= button_to "ADD NEW INSPECTION", new_inspection_path, method: "get", class: "button" %></span><br>
+      <%@rep.accounts.each  do |account| %>
+      <div align="center">
+        <h3><%= account.name %></h3>
+          <%account.inspections.each do |inspection|%>
+          <span align="center">Report Date: <%= link_to "#{inspection.inspection_date.strftime("%^B %m %Y")}", inspection_path(inspection) %></span><br>
+          <% end %><br>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <h1 align="center">REPORTS</h1>
+      <% @rep.reports.each do |report| %>
+      <span align="center"><%=link_to "#{report.system.system_type}:  #{report.created_at.strftime("%^B %m %Y")}", report_path(report)%><br></span>
+      <% end %>
+    </div>
+  </div>
 </div>
